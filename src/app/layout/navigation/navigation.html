@@ -4,11 +4,11 @@
       <i class="bi bi-building"></i>
       Umiya Steel & Impex
     </a>
-    <button class="navbar-toggler" type="button" (click)="toggleNavbar()" [attr.aria-expanded]="isNavbarOpen"
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()" [attr.aria-expanded]="isNavbarOpen()"
       aria-controls="navbarNav" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" [class.show]="isNavbarOpen" id="navbarNav">
+    <div class="collapse navbar-collapse" [class.show]="isNavbarOpen()" id="navbarNav">
       <ul class="navbar-nav ms-auto align-items-lg-center">
         <li class="nav-item">
           <a class="nav-link" routerLink="/" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
@@ -22,34 +22,33 @@
           </a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" role="button" [attr.aria-expanded]="false" href="#">
+          <button class="nav-link dropdown-toggle" type="button" id="productsMenuButton" aria-haspopup="true"
+            [attr.aria-expanded]="isProductsOpen()" aria-controls="productsMenu" (click)="toggleProducts()">
             Products
-          </a>
-          <ul class="dropdown-menu">
+          </button>
+          <ul class="dropdown-menu" id="productsMenu" [class.show]="isProductsOpen()"
+            [attr.aria-labelledby]="'productsMenuButton'">
             <li>
-              <a class="dropdown-item" routerLink="/products/stainless-steel" (click)="closeNavbar()">Stainless
+              <a class="dropdown-item" routerLink="/products/stainless-steel"
+                (click)="closeNavbar(); closeProducts()">Stainless Steel</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/products/aluminium"
+                (click)="closeNavbar(); closeProducts()">Aluminium</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/products/copper" (click)="closeNavbar(); closeProducts()">Copper</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/products/brass" (click)="closeNavbar(); closeProducts()">Brass</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/products/mild-steel" (click)="closeNavbar(); closeProducts()">Mild
                 Steel</a>
             </li>
             <li>
-              <a class="dropdown-item" routerLink="/products/aluminium" (click)="closeNavbar()">Aluminium</a>
-            </li>
-            <li>
-              <a class="dropdown-item" routerLink="/products/copper" (click)="closeNavbar()">Copper</a>
-            </li>
-            <li>
-              <a class="dropdown-item" routerLink="/products/brass" (click)="closeNavbar()">Brass</a>
-            </li>
-            <li>
-              <a class="dropdown-item" routerLink="/products/mild-steel" (click)="closeNavbar()">Mild Steel</a>
-            </li>
-            <li>
-              <a class="dropdown-item" routerLink="/products/galvanize" (click)="closeNavbar()">Galvanize</a>
-            </li>
-            <li>
-              <hr class="dropdown-divider" />
-            </li>
-            <li>
-              <a class="dropdown-item" routerLink="/products" (click)="closeNavbar()">All Products</a>
+              <a class="dropdown-item" routerLink="/products/galvanize"
+                (click)="closeNavbar(); closeProducts()">Galvanize</a>
             </li>
           </ul>
         </li>

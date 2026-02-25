@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -9,13 +9,26 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Navigation {
-  isNavbarOpen = false;
+  isNavbarOpen = signal(false);
+  isProductsOpen = signal(false);
 
   toggleNavbar() {
-    this.isNavbarOpen = !this.isNavbarOpen;
+    this.isNavbarOpen.set(!this.isNavbarOpen());
+    if (!this.isNavbarOpen()) {
+      this.isProductsOpen.set(false);
+    }
   }
 
   closeNavbar() {
-    this.isNavbarOpen = false;
+    this.isNavbarOpen.set(false);
+    this.isProductsOpen.set(false);
+  }
+
+  toggleProducts() {
+    this.isProductsOpen.set(!this.isProductsOpen());
+  }
+
+  closeProducts() {
+    this.isProductsOpen.set(false);
   }
 }

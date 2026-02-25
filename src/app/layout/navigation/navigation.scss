@@ -68,7 +68,14 @@
     }
   }
 
+  .dropdown-toggle {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+
   .dropdown-menu {
+    display: none;
     border: none;
     border-top: 3px solid var(--primary);
     border-radius: var(--radius-md);
@@ -76,6 +83,10 @@
     background: white;
     animation: slideInDown calc(var(--transition-base) / 2);
     min-width: 200px;
+
+    &.show {
+      display: block;
+    }
 
     .dropdown-item {
       color: var(--dark);
