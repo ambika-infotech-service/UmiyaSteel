@@ -6,257 +6,274 @@
   width: 100%;
 }
 
+// ============================================
+// Shared helpers
+// ============================================
+.section-label {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--primary);
+  background: var(--primary-lighter);
+  padding: 0.25rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
 
-// ============================================
-// Page Header
-// ============================================
-.page-header {
-  background: var(--gradient-primary);
-  color: white;
-  border-bottom: 4px solid var(--accent);
+.section-heading {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 1.25rem;
+  line-height: 1.25;
+}
+
+p {
+  color: var(--gray);
+  line-height: 1.8;
+  margin-bottom: 1rem;
 }
 
 // ============================================
-// Story Section
+// Side image (fill pattern)
 // ============================================
-.story-section {
-  padding: var(--space-2xl) var(--space-md);
-  background: white;
-  animation: fadeIn calc(var(--transition-base) + 100ms);
+.side-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
 
-  .story-content {
-    max-width: 800px;
-    margin: 0 auto;
+.side-img {
+  object-fit: cover;
+}
 
-    h2 {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--dark);
-      margin-bottom: var(--space-lg);
-      animation: slideInUp var(--transition-base);
+// ============================================
+// Hero Banner
+// ============================================
+.hero-banner {
+  position: relative;
+  height: 340px;
+  overflow: hidden;
 
-      &::before {
-        content: '';
-        display: block;
-        width: 60px;
-        height: 3px;
-        background: var(--gradient-primary);
-        margin-bottom: var(--space-md);
-        border-radius: 2px;
-      }
-    }
-
-    .story-text {
-      color: var(--gray);
-      font-size: 1.1rem;
-      line-height: 1.8;
-      margin-bottom: var(--space-lg);
-      animation: slideInUp calc(var(--transition-base) + 100ms);
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
+  @media (max-width: 576px) {
+    height: 220px;
   }
 }
 
-// ============================================
-// Values Grid
-// ============================================
-.values-section {
-  padding: var(--space-2xl) var(--space-md);
-  background: var(--gray-lightest);
-  margin-top: var(--space-xl);
-  margin-bottom: var(--space-xl);
-  animation: fadeIn calc(var(--transition-base) + 200ms);
+.hero-img-wrapper {
+  position: absolute;
+  inset: 0;
 
-  .section-title {
-    animation: slideInUp var(--transition-base);
+  .hero-img {
+    object-fit: cover;
   }
 }
 
-.values-section .card {
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--primary-lighter);
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.02) 0%, rgba(124, 58, 237, 0.02) 100%);
-  }
-}
-
-.values-section .value-icon {
-  width: 70px;
-  height: 70px;
-  border-radius: var(--radius-lg);
-  background: var(--gradient-primary);
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.72) 0%, rgba(37, 99, 235, 0.55) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  text-align: center;
+}
+
+.hero-content {
   color: white;
-  margin: 0 auto var(--space-md);
-  transition: all var(--transition-base);
-}
 
-.values-section .card:hover .value-icon {
-  transform: scale(1.08) rotate(-4deg);
-}
-
-// ============================================
-// Mission & Vision Section
-// ============================================
-.mission-vision-section {
-  padding: var(--space-2xl) var(--space-md);
-  background: white;
-  margin-top: var(--space-xl);
-  animation: fadeIn calc(var(--transition-base) + 400ms);
-
-  .section-title {
-    animation: slideInUp var(--transition-base);
-  }
-}
-
-.mission-vision-section .card {
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  transition: all var(--transition-base);
-  height: 100%;
-  margin-top: var(--space-xl);
-
-  .card-body {
-    padding: var(--space-xl);
-  }
-
-  .card-title {
-    font-size: 1.5rem;
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 800;
-    margin-bottom: var(--space-md);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
+
+  .breadcrumb {
+    list-style: none;
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
-    color: var(--dark);
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0;
+    margin: 0;
+    font-size: 0.95rem;
 
-    i {
-      color: var(--primary);
-      font-size: 1.5rem;
+    .breadcrumb-item {
+      a {
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+
+        &:hover {
+          color: white;
+          text-decoration: underline;
+        }
+      }
+
+      &.active {
+        color: white;
+        font-weight: 600;
+      }
+
+      + .breadcrumb-item::before {
+        content: '>';
+        color: rgba(255, 255, 255, 0.7);
+        margin-right: 0.4rem;
+      }
     }
   }
+}
 
-  .card-text {
-    color: var(--gray);
-    line-height: 1.8;
+// ============================================
+// About Us Section
+// ============================================
+.about-section {
+  padding: 5rem 0;
+  background: #fff;
+}
+
+// ============================================
+// Our Story Section
+// ============================================
+.story-section {
+  padding: 5rem 0;
+  background: var(--gray-lightest, #f8f9fb);
+}
+
+// ============================================
+// Vision & Mission — full bleed split
+// ============================================
+.vision-mission-split {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.vm-half {
+  flex: 1 1 50%;
+  min-width: min(100%, 300px);
+  display: flex;
+  align-items: stretch;
+}
+
+.vm-vision {
+  background: var(--gradient-primary);
+  color: white;
+}
+
+.vm-mission {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: white;
+}
+
+.vm-inner {
+  padding: 4rem 3rem;
+
+  @media (max-width: 768px) {
+    padding: 3rem 1.5rem;
+  }
+
+  .vm-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  h2 {
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+    color: white;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.85);
     font-size: 1rem;
-    margin: 0;
-  }
-
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--primary);
+    line-height: 1.85;
+    margin-bottom: 0;
   }
 }
 
-.mission-vision-section .vision-card .card-title i {
-  color: var(--secondary);
+// ============================================
+// Why Choose Us
+// ============================================
+.why-section {
+  padding: 5rem 0;
+  background: #fff;
 }
 
-// ============================================
-// Team Section (Optional)
-// ============================================
-.team-section {
-  padding: var(--space-2xl) var(--space-md);
-  background: var(--gray-lightest);
-  animation: fadeIn calc(var(--transition-base) + 500ms);
+.why-intro {
+  margin-bottom: 2rem;
+}
 
-  .section-title {
-    animation: slideInUp var(--transition-base);
+.why-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.why-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark);
+
+  .why-feature-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 0.75rem;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  &:hover .why-feature-icon {
+    transform: scale(1.1) rotate(-4deg);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.45);
   }
 }
 
 // ============================================
 // Responsive
 // ============================================
-@media (max-width: 768px) {
+@media (max-width: 992px) {
+  .side-img-wrapper {
+    height: 320px;
+  }
+}
 
+@media (max-width: 576px) {
+  .about-section,
   .story-section,
-  .values-section,
-  .mission-vision-section,
-  .team-section {
-    padding: var(--space-lg) var(--space-md);
+  .why-section {
+    padding: 3rem 0;
   }
 
-  .story-section .story-content h2 {
-    font-size: 1.5rem;
-  }
-
-  .values-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
-
-  .value-card {
-    padding: var(--space-lg);
-
-    .value-icon {
-      width: 60px;
-      height: 60px;
-      font-size: 2rem;
-      margin-bottom: var(--space-md);
-    }
-
-    .value-title {
-      font-size: 1.25rem;
-    }
-  }
-
-  .mission-vision-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-  }
-
-  .mission-card,
-  .vision-card {
-    padding: var(--space-lg);
-
-    h3 {
-      font-size: 1.5rem;
-    }
+  .side-img-wrapper {
+    height: 240px;
   }
 }
 
-@media (max-width: 480px) {
-  .page-header h1 {
-    font-size: 1.5rem;
-  }
-
-  .story-section .story-content {
-    h2 {
-      font-size: 1.25rem;
-    }
-
-    .story-text {
-      font-size: 1rem;
-    }
-  }
-
-  .value-card {
-    .value-title {
-      font-size: 1.1rem;
-    }
-
-    .value-description {
-      font-size: 0.9rem;
-    }
-  }
-
-  .mission-card,
-  .vision-card {
-    h3 {
-      font-size: 1.25rem;
-    }
-
-    p {
-      font-size: 0.9rem;
-    }
-  }
-}
