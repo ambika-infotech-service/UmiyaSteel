@@ -1,59 +1,110 @@
 :host {
   display: block;
   width: 100%;
+  animation: slideInUp var(--transition-slow);
 }
 
 footer {
-  background-color: #212529 !important;
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--dark) 0%, rgba(30, 64, 175, 0.95) 100%);
+  color: white;
   font-size: 0.95rem;
   line-height: 1.6;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 2px solid var(--primary);
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 
   h5 {
-    color: #ffffff;
-    font-weight: 600;
-    margin-bottom: 1rem;
+    color: white;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
     font-size: 1.1rem;
+    position: relative;
+    padding-bottom: var(--space-sm);
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 1px;
+    }
   }
 
   .footer-text {
     color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-sm);
     font-size: 0.95rem;
+    transition: color var(--transition-base);
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    &:hover {
+      color: white;
     }
   }
 
   .footer-link {
     color: rgba(255, 255, 255, 0.8);
-    transition: color 0.3s ease;
+    transition: all var(--transition-base);
     display: inline-block;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-sm);
+    position: relative;
+    padding-bottom: 2px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width var(--transition-base);
+    }
 
     &:hover {
-      color: #ffffff;
-      text-decoration: underline !important;
+      color: white;
+
+      &::after {
+        width: 100%;
+      }
     }
   }
 
   hr {
     border-color: rgba(255, 255, 255, 0.15);
-    margin: 1.5rem 0;
+    margin: var(--space-lg) 0;
   }
 
   i {
-    margin-right: 0.5rem;
-    color: #ffffff;
+    margin-right: var(--space-sm);
+    color: var(--accent);
+    transition: all var(--transition-base);
+
+    &:hover {
+      transform: scale(1.2) rotate(10deg);
+    }
   }
 
   p {
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-sm);
+    animation: fadeIn var(--transition-base);
 
     &.footer-text {
       color: rgba(255, 255, 255, 0.85);
     }
+  }
+
+  .copyright {
+    text-align: center;
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: var(--space-lg);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
   }
 }

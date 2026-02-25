@@ -1,91 +1,106 @@
-<!-- Page Header -->
-<div class="bg-dark text-white py-4">
-  <div class="container">
-    <h1 class="display-5 fw-bold">About Us</h1>
-    <p class="lead">Discover our story and commitment to excellence</p>
-  </div>
-</div>
+<div class="page-container">
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <h1>About Us</h1>
+      <p>Discover our story and commitment to excellence</p>
+    </div>
+  </header>
 
-<!-- About Section -->
-<section class="py-5">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6 mb-4">
-        <h2 class="mb-4">Umiya Steel & Impex</h2>
-        <p class="lead mb-3">
-          With years of experience in the steel and metal industry, Umiya Steel & Impex has established
-          itself as a trusted name in providing premium quality products and exceptional service.
-        </p>
-        <p class="mb-3">
-          Our company specializes in sourcing, processing, and supplying a wide range of steel and metal
-          products to industries across India and beyond. We are committed to maintaining the highest standards
-          of quality, reliability, and customer satisfaction.
-        </p>
-        <p>
-          Whether you're looking for stainless steel, aluminum, copper, brass, mild steel, or galvanized products,
-          we have the expertise and resources to meet your specific needs.
-        </p>
-      </div>
-      <div class="col-lg-6">
-        <div class="bg-light p-5 rounded text-center">
-          <i class="bi bi-building display-1 text-primary"></i>
-          <h4 class="mt-3">Industry Leading</h4>
-          <p class="text-muted">Trusted by businesses and industries nationwide</p>
+  <!-- About Section -->
+  <section class="story-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4">
+          <div class="story-content">
+            <h2 class="mb-4">Umiya Steel & Impex</h2>
+            <p class="story-text">
+              With years of experience in the steel and metal industry, Umiya Steel & Impex has established
+              itself as a trusted name in providing premium quality products and exceptional service.
+            </p>
+            <p class="story-text">
+              Our company specializes in sourcing, processing, and supplying a wide range of steel and metal
+              products to industries across India and beyond. We are committed to maintaining the highest standards
+              of quality, reliability, and customer satisfaction.
+            </p>
+            <p class="story-text">
+              Whether you're looking for stainless steel, aluminum, copper, brass, mild steel, or galvanized products,
+              we have the expertise and resources to meet your specific needs.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="bg-light p-5 rounded text-center">
+            <i class="bi bi-building display-1 text-primary"></i>
+            <h4 class="mt-3">Industry Leading</h4>
+            <p class="text-muted">Trusted by businesses and industries nationwide</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Values Section -->
-<section class="py-5 bg-light">
-  <div class="container">
-    <h2 class="text-center mb-5">Our Values</h2>
-    <div class="row">
-      @for (value of values; track value.title) {
-        <div class="col-md-6 col-lg-3 mb-4">
-          <div class="card h-100 border-0 shadow-sm">
+  <!-- Values Section -->
+  <section class="values-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Values</h2>
+        <p>Our principles guide everything we do and every relationship we build.</p>
+      </div>
+      <div class="row">
+        @for (value of values; track value.title) {
+          <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card h-100 border-0 shadow-sm value-card">
+              <div class="card-body text-center">
+                <div class="value-icon">
+                  <i class="bi bi-check-circle"></i>
+                </div>
+                <h5 class="card-title">{{ value.title }}</h5>
+                <p class="card-text text-muted">{{ value.description }}</p>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision Section -->
+  <section class="mission-vision-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Mission & Vision</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="card h-100 border-0 shadow-sm mission-card">
             <div class="card-body">
-              <h5 class="card-title text-primary">{{ value.title }}</h5>
-              <p class="card-text text-muted">{{ value.description }}</p>
+              <h5 class="card-title">
+                <i class="bi bi-target"></i>
+                Our Mission
+              </h5>
+              <p class="card-text">
+                To be the leading supplier of quality steel and metal products, providing excellent service
+                and value to our customers while maintaining the highest ethical standards.
+              </p>
             </div>
           </div>
         </div>
-      }
-    </div>
-  </div>
-</section>
-
-<!-- Mission & Vision Section -->
-<section class="py-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 mb-4">
-        <div class="card border-0 shadow">
-          <div class="card-body">
-            <h5 class="card-title text-primary mb-3">
-              <i class="bi bi-target"></i> Our Mission
-            </h5>
-            <p>
-              To be the leading supplier of quality steel and metal products, providing excellent service
-              and value to our customers while maintaining the highest ethical standards.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 mb-4">
-        <div class="card border-0 shadow">
-          <div class="card-body">
-            <h5 class="card-title text-primary mb-3">
-              <i class="bi bi-star"></i> Our Vision
-            </h5>
-            <p>
-              To become a globally recognized brand synonymous with quality, reliability, and innovation in
-              the steel and metal industry.
-            </p>
+        <div class="col-md-6 mb-4">
+          <div class="card h-100 border-0 shadow-sm vision-card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <i class="bi bi-star"></i>
+                Our Vision
+              </h5>
+              <p class="card-text">
+                To become a globally recognized brand synonymous with quality, reliability, and innovation in
+                the steel and metal industry.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
