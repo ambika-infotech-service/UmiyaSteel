@@ -1,139 +1,209 @@
 <div class="page-container">
-  <!-- Page Header -->
-  <header class="page-header">
-    <div class="container">
-      <h1>Contact Us</h1>
-      <p>Get in touch with our team</p>
-    </div>
-  </header>
 
-  <!-- Contact Information Section -->
-  <section class="contact-section">
-    <div class="container">
-      <div class="contact-info-header">
-        <h3>Contact Information</h3>
-        <p>Reach out through any of the options below.</p>
-      </div>
-      <div class="row contact-info-grid">
-        @for (info of contactInfo; track info.title) {
-        <div class="col-md-6 col-lg-3 mb-4">
-          <div class="card h-100 border-0 shadow-sm contact-info-card">
-            <div class="card-body text-center">
-              <div class="info-icon">
-                <i [class]="'bi bi-' + info.icon"></i>
-              </div>
-              <h5 class="card-title">{{ info.title }}</h5>
-              @for (detail of info.details; track $index) {
-              <p class="info-value">{{ detail }}</p>
-              }
-            </div>
-          </div>
-        </div>
-        }
+  <!-- ===================== HERO BANNER ===================== -->
+  <section class="hero-banner" aria-label="Contact Us hero">
+    <div class="hero-img-wrapper">
+      <img ngSrc="/h-contactus.png" alt="" fill priority class="hero-img" />
+    </div>
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>Contact Us</h1>
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a routerLink="/">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+          </ol>
+        </nav>
       </div>
     </div>
   </section>
 
-  <!-- Contact Form Section -->
-  <section class="contact-section bg-light">
+  <!-- ===================== CONTACT SECTION (INFO + FORM) ===================== -->
+  <section class="contact-combined-section">
     <div class="container">
-      <div class="contact-container">
-        <div class="form-section">
-          <h3 class="form-title">Send us a Message</h3>
-          <p class="form-subtitle">We will respond within 1 business day.</p>
+      <div class="contact-split">
+        <!-- Left: Contact Info (40%) -->
+        <div class="contact-info-column">
+          <div class="info-header">
+            <div class="section-label">Contact Us</div>
+            <h2 class="section-heading">Get In touch with Us</h2>
+            <p class="info-intro">Please contact our dedicated customer service team.</p>
+          </div>
 
-          @if (submitSuccess()) {
-          <div class="success-alert" role="alert">
-            <div class="alert-icon">
-              <i class="bi bi-check-circle-fill"></i>
+          <div class="info-items">
+            <!-- Phone -->
+            <div class="info-item">
+              <div class="info-item-icon" aria-hidden="true">
+                <i class="bi bi-telephone-fill"></i>
+              </div>
+              <div class="info-item-content">
+                <h3>Phone</h3>
+                <p>
+                  <a href="tel:+918980808824">+91 8980808824</a>
+                </p>
+              </div>
             </div>
-            <div class="alert-content">
-              <div class="alert-title">Success!</div>
-              <p class="alert-message">Your message has been sent successfully. We'll get back to you soon.</p>
+
+            <!-- Email -->
+            <div class="info-item">
+              <div class="info-item-icon" aria-hidden="true">
+                <i class="bi bi-envelope-fill"></i>
+              </div>
+              <div class="info-item-content">
+                <h3>Email</h3>
+                <p>
+                  <a href="mailto:info@Poojasteelandimpex.com">info@Poojasteelandimpex.com</a>
+                </p>
+              </div>
+            </div>
+
+            <!-- Address -->
+            <div class="info-item">
+              <div class="info-item-icon" aria-hidden="true">
+                <i class="bi bi-geo-alt-fill"></i>
+              </div>
+              <div class="info-item-content">
+                <h3>Address</h3>
+                <address>
+                  FF, 4, Jaymangal IND Estate,<br />
+                  Opp Jagnnath IND Estate,<br />
+                  Nr Shriram Estate,<br />
+                  Gujarat Bottling Road, Rakhial,<br />
+                  Ahmedabad, Gujarat 380023
+                </address>
+              </div>
             </div>
           </div>
-          }
+        </div>
 
-          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" class="form-control" id="name" formControlName="name"
-                [class.is-invalid]="submitted() && contactForm.get('name')?.invalid" placeholder="Your Name" />
-              @if (submitted() && contactForm.get('name')?.invalid) {
-              <div class="invalid-feedback">
-                Name is required
-              </div>
-              }
+        <!-- Right: Contact Form (60%) -->
+        <div class="contact-form-column">
+          <div class="form-wrapper">
+            <div class="form-header">
+              <h2>Send us a Message</h2>
+              <p>We'll respond within 1 business day</p>
             </div>
 
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" formControlName="email"
-                [class.is-invalid]="submitted() && contactForm.get('email')?.invalid" placeholder="your@email.com" />
-              @if (submitted() && contactForm.get('email')?.invalid) {
-              <div class="invalid-feedback">
-                Please provide a valid email
+            @if (submitSuccess()) {
+              <div class="success-alert" role="alert">
+                <div class="alert-icon">
+                  <i class="bi bi-check-circle-fill"></i>
+                </div>
+                <div class="alert-content">
+                  <strong>Success!</strong> Your message has been sent successfully. We'll get back to you soon.
+                </div>
               </div>
-              }
-            </div>
+            }
 
-            <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="tel" class="form-control" id="phone" formControlName="phone"
-                [class.is-invalid]="submitted() && contactForm.get('phone')?.invalid"
-                placeholder="+91-XXXX-XXXX-XXXX" />
-              @if (submitted() && contactForm.get('phone')?.invalid) {
-              <div class="invalid-feedback">
-                Phone is required
-              </div>
-              }
-            </div>
-
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" class="form-control" id="subject" formControlName="subject"
-                [class.is-invalid]="submitted() && contactForm.get('subject')?.invalid"
-                placeholder="What is this about?" />
-              @if (submitted() && contactForm.get('subject')?.invalid) {
-              <div class="invalid-feedback">
-                Subject is required
-              </div>
-              }
-            </div>
-
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea class="form-control" id="message" rows="5" formControlName="message"
-                [class.is-invalid]="submitted() && contactForm.get('message')?.invalid"
-                placeholder="Your message here..."></textarea>
-              @if (submitted() && contactForm.get('message')?.invalid) {
-              <div class="invalid-feedback">
-                @if (contactForm.get('message')?.hasError('required')) {
-                Message is required
-                }
-                @if (contactForm.get('message')?.hasError('minlength')) {
-                Message must be at least 10 characters
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+              <!-- Name -->
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  formControlName="name"
+                  [class.is-invalid]="submitted() && contactForm.get('name')?.invalid"
+                  placeholder="Your Name"
+                />
+                @if (submitted() && contactForm.get('name')?.invalid) {
+                  <div class="invalid-feedback">Name is required</div>
                 }
               </div>
-              }
-            </div>
 
-            <div class="form-actions">
-              <button type="submit" class="btn btn-primary" [disabled]="submitted()">
-                @if (submitted()) {
-                <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
-                Sending...
-                } @else {
-                Send Message
+              <!-- Email -->
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  formControlName="email"
+                  [class.is-invalid]="submitted() && contactForm.get('email')?.invalid"
+                  placeholder="your@email.com"
+                />
+                @if (submitted() && contactForm.get('email')?.invalid) {
+                  <div class="invalid-feedback">Please provide a valid email</div>
                 }
-              </button>
-              <button type="button" class="btn btn-outline-secondary" (click)="contactForm.reset()">
-                Reset
-              </button>
-            </div>
-          </form>
+              </div>
+
+              <!-- Phone -->
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  class="form-control"
+                  formControlName="phone"
+                  [class.is-invalid]="submitted() && contactForm.get('phone')?.invalid"
+                  placeholder="+91-XXXX-XXXX-XXXX"
+                />
+                @if (submitted() && contactForm.get('phone')?.invalid) {
+                  <div class="invalid-feedback">Phone is required</div>
+                }
+              </div>
+
+              <!-- Subject -->
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  class="form-control"
+                  formControlName="subject"
+                  [class.is-invalid]="submitted() && contactForm.get('subject')?.invalid"
+                  placeholder="What is this about?"
+                />
+                @if (submitted() && contactForm.get('subject')?.invalid) {
+                  <div class="invalid-feedback">Subject is required</div>
+                }
+              </div>
+
+              <!-- Message -->
+              <div class="form-group">
+                <label for="message">Enter your message</label>
+                <textarea
+                  id="message"
+                  class="form-control"
+                  rows="5"
+                  formControlName="message"
+                  [class.is-invalid]="submitted() && contactForm.get('message')?.invalid"
+                  placeholder="Your message here..."
+                ></textarea>
+                @if (submitted() && contactForm.get('message')?.invalid) {
+                  <div class="invalid-feedback">
+                    @if (contactForm.get('message')?.hasError('required')) {
+                      Message is required
+                    }
+                    @if (contactForm.get('message')?.hasError('minlength')) {
+                      Message must be at least 10 characters
+                    }
+                  </div>
+                }
+              </div>
+
+              <!-- Form Actions -->
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary" [disabled]="submitted()">
+                  @if (submitted()) {
+                    <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                    <span>Sending...</span>
+                  } @else {
+                    Send Message
+                  }
+                </button>
+                <button type="button" class="btn btn-outline-secondary" (click)="contactForm.reset()">
+                  Reset
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
 </div>

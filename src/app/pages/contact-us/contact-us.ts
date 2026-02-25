@@ -1,9 +1,11 @@
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { NgOptimizedImage } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-contact-us',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgOptimizedImage, RouterLink],
   templateUrl: './contact-us.html',
   styleUrl: './contact-us.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -37,27 +39,5 @@ export class ContactUs {
       }, 1000);
     }
   }
-
-  contactInfo = [
-    {
-      icon: 'telephone',
-      title: 'Phone',
-      details: ['+91-XXXX-XXXX-XXXX', '+91-XXXX-XXXX-YYYY']
-    },
-    {
-      icon: 'envelope',
-      title: 'Email',
-      details: ['info@umiyasteel.com', 'sales@umiyasteel.com']
-    },
-    {
-      icon: 'geo-alt',
-      title: 'Address',
-      details: ['City, State 000000', 'India']
-    },
-    {
-      icon: 'clock',
-      title: 'Business Hours',
-      details: ['Monday - Friday: 9:00 AM - 6:00 PM', 'Saturday: 10:00 AM - 4:00 PM']
-    }
-  ];
 }
+
