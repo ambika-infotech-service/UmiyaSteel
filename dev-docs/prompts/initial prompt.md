@@ -8,7 +8,7 @@ Total 4 pages will be there
   - About Us
   - Products
     - Stainless Steel
-    - Aluminium
+    - Aluminum
     - Copper
     - Brass
     - Mild Steel
