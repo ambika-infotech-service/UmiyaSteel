@@ -1,6 +1,8 @@
 import { Component, ChangeDetectionStrategy, inject, computed } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs';
 import { ProductsService, Product } from '../../services/products';
 
 @Component({
@@ -14,8 +16,13 @@ export class ProductDetail {
   private route = inject(ActivatedRoute);
   private productsService = inject(ProductsService);
 
-  slug = this.route.snapshot.paramMap.get('slug') || '';
+  slug = toSignal(
+    this.route.paramMap.pipe(map(params => params.get('slug') || '')),
+    { initialValue: '' }
+  );
+
   product = computed<Product | undefined>(() => {
-    return this.productsService.getProduct(this.slug);
+    const currentSlug = this.slug();
+    return this.productsService.getProduct(currentSlug);
   });
 }
