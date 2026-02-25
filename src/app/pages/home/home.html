@@ -1,82 +1,207 @@
-<!-- Hero Section -->
-<section class="hero bg-dark text-white py-5">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6">
-        <h1 class="display-4 fw-bold mb-3">Premium Steel & Metal Products</h1>
-        <p class="lead mb-4">
-          Umiya Steel & Impex is your trusted partner for high-quality steel and metal products.
-          We specialize in delivering premium-grade materials for industrial, commercial, and domestic applications.
-        </p>
-        <div class="d-flex gap-3">
-          <a href="/products" class="btn btn-primary btn-lg">Browse Products</a>
-          <a href="/contact-us" class="btn btn-outline-light btn-lg">Get in Touch</a>
-        </div>
-      </div>
-      <div class="col-lg-6 text-center">
-        <div class="display-1 text-info">
-          <i class="bi bi-building"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Features Section -->
-<section class="features py-5 bg-light">
-  <div class="container">
-    <h2 class="text-center mb-5">Why Choose Us</h2>
-    <div class="row">
-      @for (feature of features; track feature.title) {
-      <div class="col-md-6 col-lg-3 mb-4">
-        <div class="card h-100 border-0 shadow-sm">
-          <div class="card-body text-center">
-            <i [class]="'bi bi-' + feature.icon + ' display-4 text-primary mb-3'"></i>
-            <h5 class="card-title">{{ feature.title }}</h5>
-            <p class="card-text text-muted">{{ feature.description }}</p>
+<!-- Image Carousel Section -->
+<section class="carousel-section">
+  <div class="carousel-container">
+    <div class="carousel-wrapper">
+      @for (image of carouselImages; track image.alt; let i = $index) {
+        <div [class.carousel-slide]="true" [class.active]="i === carouselIndex()">
+          <img
+            [src]="image.image"
+            [alt]="image.alt"
+            class="carousel-image"
+          />
+          <div class="carousel-overlay">
+            <div class="carousel-content">
+              <p class="carousel-title">{{ image.title }}</p>
+              <h2 class="carousel-subtitle">{{ image.subtitle }}</h2>
+              <p class="carousel-description">{{ image.description }}</p>
+            </div>
           </div>
         </div>
-      </div>
+      }
+    </div>
+
+    <!-- Carousel Controls -->
+    <button
+      class="carousel-control prev"
+      (click)="prevSlide()"
+      aria-label="Previous slide"
+    >
+      <i class="bi bi-chevron-left"></i>
+    </button>
+    <button
+      class="carousel-control next"
+      (click)="nextSlide()"
+      aria-label="Next slide"
+    >
+      <i class="bi bi-chevron-right"></i>
+    </button>
+
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators">
+      @for (image of carouselImages; track image.alt; let i = $index) {
+        <button
+          [class.active]="i === carouselIndex()"
+          (click)="goToSlide(i)"
+          [attr.aria-label]="'Go to slide ' + i"
+          [attr.aria-current]="i === carouselIndex() ? 'true' : 'false'"
+        ></button>
       }
     </div>
   </div>
 </section>
 
-<!-- Products Preview Section -->
-<section class="products-preview py-5">
+<!-- About Us Section -->
+<section class="about-us-section py-5">
   <div class="container">
-    <h2 class="text-center mb-5">Our Main Products</h2>
-    <div class="row">
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card border-0 shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title">Stainless Steel</h5>
-            <p class="card-text text-muted">Corrosion-resistant steel for various applications.</p>
-            <a href="/products/stainless-steel" class="btn btn-outline-primary btn-sm">Learn More</a>
-          </div>
-        </div>
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <img
+          src="/h-aboutus.png"
+          alt="About Pooja Steel and Impex"
+          class="img-fluid rounded"
+          width="500"
+          height="400"
+        />
       </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card border-0 shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title">Aluminium</h5>
-            <p class="card-text text-muted">Lightweight metal for modern applications.</p>
-            <a href="/products/aluminium" class="btn btn-outline-primary btn-sm">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card border-0 shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title">Copper</h5>
-            <p class="card-text text-muted">Excellent electrical conductivity material.</p>
-            <a href="/products/copper" class="btn btn-outline-primary btn-sm">Learn More</a>
-          </div>
-        </div>
+      <div class="col-lg-6 ps-lg-4">
+        <h2 class="mb-3">About Us</h2>
+        <p class="lead text-muted mb-3">A reliable supplier of all kind of metals</p>
+        <p>
+          Welcome to Pooja Steel and Impex, your trusted partner in the metals industry for over a
+          decade. With more than 10 years of experience, we have established ourselves as a reliable
+          supplier of all kinds of metals, catering to diverse industries and applications.
+        </p>
+        <a routerLink="/about-us" class="btn btn-primary mt-3">Learn More</a>
       </div>
     </div>
-    <div class="text-center mt-4">
-      <a href="/products" class="btn btn-primary btn-lg">View All Products</a>
+  </div>
+</section>
+
+<!-- Products Section -->
+<section class="products-section py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-2">Our Products</h2>
+    <p class="text-center text-muted mb-5">
+      We are dedicated to transforming the industries we serve through our three core business
+      divisions, setting the standard for the future of metal products we manufacture.
+    </p>
+
+    <div class="row">
+      @for (product of products; track product.id) {
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card h-100 border-0 shadow-sm product-card">
+            <div class="product-image-wrapper">
+              <img
+                [src]="product.image"
+                [alt]="product.name"
+                class="card-img-top"
+                width="400"
+                height="300"
+              />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ product.name }}</h5>
+              <p class="card-text text-muted">{{ product.description }}</p>
+            </div>
+            <div class="card-footer border-0 bg-transparent">
+              <a [routerLink]="['/products', product.id]" class="btn btn-outline-primary btn-sm">Learn More</a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="why-choose-us-section py-5">
+  <div class="container">
+    <h2 class="text-center mb-2">Why Choose Us</h2>
+    <p class="text-center text-muted mb-5">A reliable supplier of all kind of metals</p>
+
+    <p class="text-center mb-5">
+      At Pooja Steel and Impex, we stand out as your premier choice for metal supplies due to our
+      unwavering commitment to quality, reliability, and customer satisfaction. With over a decade of
+      experience in the industry, we have built a reputation for delivering superior products and
+      exceptional service.
+    </p>
+
+    <div class="row">
+      @for (feature of features; track feature.title) {
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="card h-100 border-0 shadow-sm text-center">
+            <div class="card-body">
+              <i [class]="'bi bi-' + feature.icon + ' display-4 text-primary mb-3'"></i>
+              <h5 class="card-title">{{ feature.title }}</h5>
+              <p class="card-text text-muted">{{ feature.description }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Contact Us Section -->
+<section class="contact-us-section py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h2 class="mb-4">Get In touch with Us</h2>
+        <p class="text-muted mb-4">Please contact our dedicated customer service team.</p>
+
+        <div class="contact-info mb-4">
+          <div class="contact-item mb-3">
+            <h6 class="text-primary">
+              <i class="bi bi-telephone-fill me-2"></i>Phone
+            </h6>
+            <p>
+              <a href="tel:+918980808824" class="text-decoration-none">+91 8980808824</a>
+            </p>
+          </div>
+
+          <div class="contact-item mb-3">
+            <h6 class="text-primary">
+              <i class="bi bi-envelope-fill me-2"></i>Email
+            </h6>
+            <p>
+              <a href="mailto:info@poojasteelandimpex.com" class="text-decoration-none">
+                info@poojasteelandimpex.com
+              </a>
+            </p>
+          </div>
+
+          <div class="contact-item">
+            <h6 class="text-primary">
+              <i class="bi bi-geo-alt-fill me-2"></i>Address
+            </h6>
+            <p>
+              FF, 4, Jaymangal IND Estate,<br />
+              Opp Jagnnath IND Estate,<br />
+              Nr Shriram Estate,<br />
+              Gujarat Bottling Road,<br />
+              Rakhial,<br />
+              Ahmedabad, Gujarat, 380023
+            </p>
+          </div>
+        </div>
+
+        <a routerLink="/contact-us" class="btn btn-primary">Contact Us</a>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="map-container">
+          <iframe
+            title="Pooja Steel and Impex Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.7522404411397!2d72.55218!3d23.081819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e82fe8e8e8e8d%3A0x8e8e8e8e8e8e8e8e!2sPooja%20Steel%20And%20Impex!5e0!3m2!1sen!2sin!4v1234567890"
+            width="100%"
+            height="400"
+            style="border: 0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
     </div>
   </div>
 </section>
