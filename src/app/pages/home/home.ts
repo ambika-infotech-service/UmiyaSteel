@@ -36,21 +36,21 @@ export class Home implements OnInit, OnDestroy {
 
   carouselImages: CarouselSlide[] = [
     {
-      image: '/ic-steel.png',
+      image: '/home/ic-steel.png',
       alt: 'Stainless Steel Products',
       title: 'India\'s Leading',
       subtitle: 'Stainless Steel Products Supplier',
       description: 'Born from innovative brilliance and bolstered by an unrivaled reputation, our creations today drive the changes of tomorrow.'
     },
     {
-      image: '/ic-galvanize.png',
+      image: '/home/ic-galvanize.png',
       alt: 'Galvanize Products',
       title: 'India\'s Leading',
       subtitle: 'Galvanize Products Supplier',
       description: 'Innovative metal solutions for a brighter tomorrow.'
     },
     {
-      image: '/ic-copper.png',
+      image: '/home/ic-copper.png',
       alt: 'Copper Products',
       title: 'India\'s Leading',
       subtitle: 'Copper Products Supplier',
@@ -62,38 +62,38 @@ export class Home implements OnInit, OnDestroy {
     {
       id: 'stainless-steel',
       name: 'Stainless Steel',
-      description: 'Pooja Steel and Impex offers premium stainless steel, renowned for its exceptional resistance to rust, staining, and corrosion.',
-      image: '/hp-stainlesssteel.png'
+      description: 'Umiya Steel and Impex offers premium stainless steel, renowned for its exceptional resistance to rust, staining, and corrosion.',
+      image: '/home/hp-stainlesssteel.png'
     },
     {
       id: 'aluminum',
       name: 'Aluminum',
       description: 'Our high-quality aluminum products are known for their excellent strength-to-weight ratio, corrosion resistance, and versatility.',
-      image: '/hp-aluminum.png'
+      image: '/home/hp-aluminum.png'
     },
     {
       id: 'copper',
       name: 'Copper',
       description: 'Our copper products are prized for their superior electrical and thermal conductivity, making them essential in electrical wiring, plumbing, and industrial machinery.',
-      image: '/hp-copper.png'
+      image: '/home/hp-copper.png'
     },
     {
       id: 'brass',
       name: 'Brass',
       description: 'We provide top-grade brass, an alloy known for its acoustic properties, malleability, and resistance to corrosion.',
-      image: '/hp-brass.png'
+      image: '/home/hp-brass.png'
     },
     {
       id: 'mild-steel',
       name: 'Mild Steel',
-      description: 'Pooja Steel and Impex supplies mild steel, valued for its excellent weldability, machinability, and cost-effectiveness.',
-      image: '/hp-mildsteel.png'
+      description: 'Umiya Steel and Impex supplies mild steel, valued for its excellent weldability, machinability, and cost-effectiveness.',
+      image: '/home/hp-mildsteel.png'
     },
     {
-      id: 'galvanized',
+      id: 'galvanize',
       name: 'Galvanized Steel',
       description: 'Our galvanized steel products offer superior corrosion resistance and durability for long-lasting performance.',
-      image: '/hp-galvanize.png'
+      image: '/home/hp-galvanize.png'
     }
   ];
 

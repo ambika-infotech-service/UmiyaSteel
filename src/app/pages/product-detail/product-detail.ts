@@ -1,10 +1,11 @@
 import { Component, ChangeDetectionStrategy, inject, computed } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProductsService, Product } from '../../services/products';
 
 @Component({
   selector: 'app-product-detail',
-  imports: [],
+  imports: [NgOptimizedImage, RouterLink],
   templateUrl: './product-detail.html',
   styleUrl: './product-detail.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
