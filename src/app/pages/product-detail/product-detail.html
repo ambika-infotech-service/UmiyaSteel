@@ -1,105 +1,105 @@
 @if (product(); as prod) {
-  <!-- Page Header -->
-  <div class="bg-dark text-white py-4">
-    <div class="container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="/" class="text-decoration-none text-light">Home</a></li>
-          <li class="breadcrumb-item"><a href="/products" class="text-decoration-none text-light">Products</a></li>
-          <li class="breadcrumb-item active text-light">{{ prod.name }}</li>
-        </ol>
-      </nav>
-      <h1 class="display-5 fw-bold">{{ prod.name }}</h1>
-    </div>
+<!-- Page Header -->
+<div class="bg-dark text-white py-4">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/" class="text-decoration-none text-light">Home</a></li>
+        <li class="breadcrumb-item"><a href="/products" class="text-decoration-none text-light">Products</a></li>
+        <li class="breadcrumb-item active text-light">{{ prod.name }}</li>
+      </ol>
+    </nav>
+    <h1 class="display-5 fw-bold">{{ prod.name }}</h1>
   </div>
+</div>
 
-  <!-- Product Details -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 mb-4">
-          <div class="card border-0 shadow-sm" [style.border-top]="'5px solid ' + prod.color">
-            <div class="card-body p-5 text-center">
-              <div class="display-1 mb-3" [style.color]="prod.color">
-                <i class="bi bi-box"></i>
-              </div>
-              <h3>{{ prod.name }}</h3>
-              <p class="text-muted lead">Premium Quality Product</p>
+<!-- Product Details -->
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <div class="card border-0 shadow-sm" [style.border-top]="'5px solid ' + prod.color">
+          <div class="card-body p-5 text-center">
+            <div class="display-1 mb-3" [style.color]="prod.color">
+              <i class="bi bi-box"></i>
             </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <h3 class="mb-3">Product Overview</h3>
-          <p class="lead mb-4">{{ prod.description }}</p>
-
-          <!-- Key Features -->
-          <div class="mb-4">
-            <h5 class="mb-3">
-              <i class="bi bi-star-fill text-warning"></i> Key Features
-            </h5>
-            <ul class="list-group list-group-flush">
-              @for (feature of prod.features; track $index) {
-                <li class="list-group-item border-0 ps-0">
-                  <i class="bi bi-check-circle-fill text-success me-2"></i>
-                  {{ feature }}
-                </li>
-              }
-            </ul>
-          </div>
-
-          <!-- Applications -->
-          <div class="mb-4">
-            <h5 class="mb-3">
-              <i class="bi bi-diagram-3 text-info"></i> Applications
-            </h5>
-            <ul class="list-group list-group-flush">
-              @for (app of prod.applications; track $index) {
-                <li class="list-group-item border-0 ps-0">
-                  <i class="bi bi-arrow-right text-primary me-2"></i>
-                  {{ app }}
-                </li>
-              }
-            </ul>
-          </div>
-
-          <!-- CTA -->
-          <div>
-            <a href="/contact-us" class="btn btn-primary btn-lg w-100 mb-2">
-              Request Quote
-            </a>
-            <a href="/products" class="btn btn-outline-secondary w-100">
-              View All Products
-            </a>
+            <h3>{{ prod.name }}</h3>
+            <p class="text-muted lead">Premium Quality Product</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+      <div class="col-lg-6">
+        <h3 class="mb-3">Product Overview</h3>
+        <p class="lead mb-4">{{ prod.description }}</p>
 
-  <!-- Related Products -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <h3 class="text-center mb-5">Related Products</h3>
-      <div class="row">
-        <div class="col-md-4 mb-3">
-          <a href="/contact-us" class="btn btn-outline-primary w-100">Request Information</a>
+        <!-- Key Features -->
+        <div class="mb-4">
+          <h5 class="mb-3">
+            <i class="bi bi-star-fill text-warning"></i> Key Features
+          </h5>
+          <ul class="list-group list-group-flush">
+            @for (feature of prod.features; track $index) {
+            <li class="list-group-item border-0 ps-0">
+              <i class="bi bi-check-circle-fill text-success me-2"></i>
+              {{ feature }}
+            </li>
+            }
+          </ul>
         </div>
-        <div class="col-md-4 mb-3">
-          <a href="/products" class="btn btn-outline-primary w-100">View All Products</a>
+
+        <!-- Applications -->
+        <div class="mb-4">
+          <h5 class="mb-3">
+            <i class="bi bi-diagram-3 text-info"></i> Applications
+          </h5>
+          <ul class="list-group list-group-flush">
+            @for (app of prod.applications; track $index) {
+            <li class="list-group-item border-0 ps-0">
+              <i class="bi bi-arrow-right text-primary me-2"></i>
+              {{ app }}
+            </li>
+            }
+          </ul>
         </div>
-        <div class="col-md-4 mb-3">
-          <a href="/about-us" class="btn btn-outline-primary w-100">About Our Company</a>
+
+        <!-- CTA -->
+        <div>
+          <a href="/contact-us" class="btn btn-primary btn-lg w-100 mb-2">
+            Request Quote
+          </a>
+          <a href="/products" class="btn btn-outline-secondary w-100">
+            View All Products
+          </a>
         </div>
       </div>
-    </div>
-  </section>
-} @else {
-  <!-- Product Not Found -->
-  <div class="bg-light py-5">
-    <div class="container text-center">
-      <h2 class="mb-3">Product Not Found</h2>
-      <p class="text-muted mb-4">We couldn't find the product you're looking for.</p>
-      <a href="/products" class="btn btn-primary">Back to Products</a>
     </div>
   </div>
+</section>
+
+<!-- Related Products -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h3 class="text-center mb-5">Related Products</h3>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <a href="/contact-us" class="btn btn-outline-primary w-100">Request Information</a>
+      </div>
+      <div class="col-md-4 mb-3">
+        <a href="/products" class="btn btn-outline-primary w-100">View All Products</a>
+      </div>
+      <div class="col-md-4 mb-3">
+        <a href="/about-us" class="btn btn-outline-primary w-100">About Our Company</a>
+      </div>
+    </div>
+  </div>
+</section>
+} @else {
+<!-- Product Not Found -->
+<div class="bg-light py-5">
+  <div class="container text-center">
+    <h2 class="mb-3">Product Not Found</h2>
+    <p class="text-muted mb-4">We couldn't find the product you're looking for.</p>
+    <a href="/products" class="btn btn-primary">Back to Products</a>
+  </div>
+</div>
 }

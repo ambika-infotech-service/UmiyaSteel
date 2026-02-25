@@ -16,19 +16,19 @@
       </div>
       <div class="row contact-info-grid">
         @for (info of contactInfo; track info.title) {
-          <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card h-100 border-0 shadow-sm contact-info-card">
-              <div class="card-body text-center">
-                <div class="info-icon">
-                  <i [class]="'bi bi-' + info.icon"></i>
-                </div>
-                <h5 class="card-title">{{ info.title }}</h5>
-                @for (detail of info.details; track $index) {
-                  <p class="info-value">{{ detail }}</p>
-                }
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="card h-100 border-0 shadow-sm contact-info-card">
+            <div class="card-body text-center">
+              <div class="info-icon">
+                <i [class]="'bi bi-' + info.icon"></i>
               </div>
+              <h5 class="card-title">{{ info.title }}</h5>
+              @for (detail of info.details; track $index) {
+              <p class="info-value">{{ detail }}</p>
+              }
             </div>
           </div>
+        </div>
         }
       </div>
     </div>
@@ -43,119 +43,88 @@
           <p class="form-subtitle">We will respond within 1 business day.</p>
 
           @if (submitSuccess()) {
-            <div class="success-alert" role="alert">
-              <div class="alert-icon">
-                <i class="bi bi-check-circle-fill"></i>
-              </div>
-              <div class="alert-content">
-                <div class="alert-title">Success!</div>
-                <p class="alert-message">Your message has been sent successfully. We'll get back to you soon.</p>
-              </div>
+          <div class="success-alert" role="alert">
+            <div class="alert-icon">
+              <i class="bi bi-check-circle-fill"></i>
             </div>
+            <div class="alert-content">
+              <div class="alert-title">Success!</div>
+              <p class="alert-message">Your message has been sent successfully. We'll get back to you soon.</p>
+            </div>
+          </div>
           }
 
           <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
               <label for="name">Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="name"
-                formControlName="name"
-                [class.is-invalid]="submitted() && contactForm.get('name')?.invalid"
-                placeholder="Your Name"
-              />
+              <input type="text" class="form-control" id="name" formControlName="name"
+                [class.is-invalid]="submitted() && contactForm.get('name')?.invalid" placeholder="Your Name" />
               @if (submitted() && contactForm.get('name')?.invalid) {
-                <div class="invalid-feedback">
-                  Name is required
-                </div>
+              <div class="invalid-feedback">
+                Name is required
+              </div>
               }
             </div>
 
             <div class="form-group">
               <label for="email">Email</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                formControlName="email"
-                [class.is-invalid]="submitted() && contactForm.get('email')?.invalid"
-                placeholder="your@email.com"
-              />
+              <input type="email" class="form-control" id="email" formControlName="email"
+                [class.is-invalid]="submitted() && contactForm.get('email')?.invalid" placeholder="your@email.com" />
               @if (submitted() && contactForm.get('email')?.invalid) {
-                <div class="invalid-feedback">
-                  Please provide a valid email
-                </div>
+              <div class="invalid-feedback">
+                Please provide a valid email
+              </div>
               }
             </div>
 
             <div class="form-group">
               <label for="phone">Phone</label>
-              <input
-                type="tel"
-                class="form-control"
-                id="phone"
-                formControlName="phone"
+              <input type="tel" class="form-control" id="phone" formControlName="phone"
                 [class.is-invalid]="submitted() && contactForm.get('phone')?.invalid"
-                placeholder="+91-XXXX-XXXX-XXXX"
-              />
+                placeholder="+91-XXXX-XXXX-XXXX" />
               @if (submitted() && contactForm.get('phone')?.invalid) {
-                <div class="invalid-feedback">
-                  Phone is required
-                </div>
+              <div class="invalid-feedback">
+                Phone is required
+              </div>
               }
             </div>
 
             <div class="form-group">
               <label for="subject">Subject</label>
-              <input
-                type="text"
-                class="form-control"
-                id="subject"
-                formControlName="subject"
+              <input type="text" class="form-control" id="subject" formControlName="subject"
                 [class.is-invalid]="submitted() && contactForm.get('subject')?.invalid"
-                placeholder="What is this about?"
-              />
+                placeholder="What is this about?" />
               @if (submitted() && contactForm.get('subject')?.invalid) {
-                <div class="invalid-feedback">
-                  Subject is required
-                </div>
+              <div class="invalid-feedback">
+                Subject is required
+              </div>
               }
             </div>
 
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea
-                class="form-control"
-                id="message"
-                rows="5"
-                formControlName="message"
+              <textarea class="form-control" id="message" rows="5" formControlName="message"
                 [class.is-invalid]="submitted() && contactForm.get('message')?.invalid"
-                placeholder="Your message here..."
-              ></textarea>
+                placeholder="Your message here..."></textarea>
               @if (submitted() && contactForm.get('message')?.invalid) {
-                <div class="invalid-feedback">
-                  @if (contactForm.get('message')?.hasError('required')) {
-                    Message is required
-                  }
-                  @if (contactForm.get('message')?.hasError('minlength')) {
-                    Message must be at least 10 characters
-                  }
-                </div>
+              <div class="invalid-feedback">
+                @if (contactForm.get('message')?.hasError('required')) {
+                Message is required
+                }
+                @if (contactForm.get('message')?.hasError('minlength')) {
+                Message must be at least 10 characters
+                }
+              </div>
               }
             </div>
 
             <div class="form-actions">
-              <button
-                type="submit"
-                class="btn btn-primary"
-                [disabled]="submitted()"
-              >
+              <button type="submit" class="btn btn-primary" [disabled]="submitted()">
                 @if (submitted()) {
-                  <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
-                  Sending...
+                <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+                Sending...
                 } @else {
-                  Send Message
+                Send Message
                 }
               </button>
               <button type="button" class="btn btn-outline-secondary" (click)="contactForm.reset()">

@@ -49,17 +49,17 @@
       </div>
       <div class="row">
         @for (value of values; track value.title) {
-          <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card h-100 border-0 shadow-sm value-card">
-              <div class="card-body text-center">
-                <div class="value-icon">
-                  <i class="bi bi-check-circle"></i>
-                </div>
-                <h5 class="card-title">{{ value.title }}</h5>
-                <p class="card-text text-muted">{{ value.description }}</p>
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="card h-100 border-0 shadow-sm value-card">
+            <div class="card-body text-center">
+              <div class="value-icon">
+                <i class="bi bi-check-circle"></i>
               </div>
+              <h5 class="card-title">{{ value.title }}</h5>
+              <p class="card-text text-muted">{{ value.description }}</p>
             </div>
           </div>
+        </div>
         }
       </div>
     </div>

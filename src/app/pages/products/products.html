@@ -11,35 +11,31 @@
   <div class="container">
     <div class="row">
       @for (product of products; track product.id) {
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="card h-100 border-0 shadow-sm hover-shadow">
-            <div class="card-header" [style.background-color]="product.color">
-              <h5 class="card-title text-white mb-0">{{ product.name }}</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text text-muted">{{ product.description }}</p>
-              <div class="mb-3">
-                <strong class="text-dark">Key Features:</strong>
-                <ul class="list-unstyled mt-2 ms-2">
-                  @for (feature of product.features; track $index) {
-                    @if ($index < 3) {
-                      <li class="mb-1">
-                        <i class="bi bi-check-circle-fill text-success me-2"></i>
-                        {{ feature }}
-                      </li>
-                    }
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 border-0 shadow-sm hover-shadow">
+          <div class="card-header" [style.background-color]="product.color">
+            <h5 class="card-title text-white mb-0">{{ product.name }}</h5>
+          </div>
+          <div class="card-body">
+            <p class="card-text text-muted">{{ product.description }}</p>
+            <div class="mb-3">
+              <strong class="text-dark">Key Features:</strong>
+              <ul class="list-unstyled mt-2 ms-2">
+                @for (feature of product.features; track $index) {
+                @if ($index < 3) { <li class="mb-1">
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>
+                  {{ feature }}
+                  </li>
                   }
-                </ul>
-              </div>
-              <a
-                [routerLink]="'/products/' + product.slug"
-                class="btn btn-primary w-100"
-              >
-                View Details
-              </a>
+                  }
+              </ul>
             </div>
+            <a [routerLink]="'/products/' + product.slug" class="btn btn-primary w-100">
+              View Details
+            </a>
           </div>
         </div>
+      </div>
       }
     </div>
   </div>
