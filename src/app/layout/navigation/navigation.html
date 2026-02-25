@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold fs-5" href="/">
+      <i class="bi bi-building"></i>
+      Umiya Steel & Impex
+    </a>
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()" [attr.aria-expanded]="isNavbarOpen"
+      aria-controls="navbarNav" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" [class.show]="isNavbarOpen" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+            (click)="closeNavbar()">
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about-us" routerLinkActive="active" (click)="closeNavbar()">
+            About Us
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" [attr.aria-expanded]="false" href="#">
+            Products
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" routerLink="/products/stainless-steel" (click)="closeNavbar()">Stainless
+                Steel</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/products/aluminium" (click)="closeNavbar()">Aluminium</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/products/copper" (click)="closeNavbar()">Copper</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/products/brass" (click)="closeNavbar()">Brass</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/products/mild-steel" (click)="closeNavbar()">Mild Steel</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/products/galvanize" (click)="closeNavbar()">Galvanize</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/products" (click)="closeNavbar()">All Products</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact-us" routerLinkActive="active" (click)="closeNavbar()">
+            Contact Us
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

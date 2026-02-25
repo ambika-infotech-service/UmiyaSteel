@@ -1,0 +1,59 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+footer {
+  background-color: #212529 !important;
+  color: #ffffff;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  h5 {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .footer-text {
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .footer-link {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+
+    &:hover {
+      color: #ffffff;
+      text-decoration: underline !important;
+    }
+  }
+
+  hr {
+    border-color: rgba(255, 255, 255, 0.15);
+    margin: 1.5rem 0;
+  }
+
+  i {
+    margin-right: 0.5rem;
+    color: #ffffff;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+
+    &.footer-text {
+      color: rgba(255, 255, 255, 0.85);
+    }
+  }
+}
