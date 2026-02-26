@@ -1,7 +1,7 @@
-import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Navigation } from './layout/navigation/navigation';
 import { Footer } from './layout/footer/footer';
+import { Navigation } from './layout/navigation/navigation';
 
 @Component({
   selector: 'app-root',

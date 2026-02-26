@@ -86,101 +86,74 @@
             </div>
 
             @if (submitSuccess()) {
-              <div class="success-alert" role="alert">
-                <div class="alert-icon">
-                  <i class="bi bi-check-circle-fill"></i>
-                </div>
-                <div class="alert-content">
-                  <strong>Success!</strong> Your message has been sent successfully. We'll get back to you soon.
-                </div>
+            <div class="success-alert" role="alert">
+              <div class="alert-icon">
+                <i class="bi bi-check-circle-fill"></i>
               </div>
+              <div class="alert-content">
+                <strong>Success!</strong> Your message has been sent successfully. We'll get back to you soon.
+              </div>
+            </div>
             }
 
             <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
               <!-- Name -->
               <div class="form-group">
                 <label for="name">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  class="form-control"
-                  formControlName="name"
-                  [class.is-invalid]="submitted() && contactForm.get('name')?.invalid"
-                  placeholder="Your Name"
-                />
+                <input type="text" id="name" class="form-control" formControlName="name"
+                  [class.is-invalid]="submitted() && contactForm.get('name')?.invalid" placeholder="Your Name" />
                 @if (submitted() && contactForm.get('name')?.invalid) {
-                  <div class="invalid-feedback">Name is required</div>
+                <div class="invalid-feedback">Name is required</div>
                 }
               </div>
 
               <!-- Email -->
               <div class="form-group">
                 <label for="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  class="form-control"
-                  formControlName="email"
-                  [class.is-invalid]="submitted() && contactForm.get('email')?.invalid"
-                  placeholder="your@email.com"
-                />
+                <input type="email" id="email" class="form-control" formControlName="email"
+                  [class.is-invalid]="submitted() && contactForm.get('email')?.invalid" placeholder="your@email.com" />
                 @if (submitted() && contactForm.get('email')?.invalid) {
-                  <div class="invalid-feedback">Please provide a valid email</div>
+                <div class="invalid-feedback">Please provide a valid email</div>
                 }
               </div>
 
               <!-- Phone -->
               <div class="form-group">
                 <label for="phone">Phone</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  class="form-control"
-                  formControlName="phone"
+                <input type="tel" id="phone" class="form-control" formControlName="phone"
                   [class.is-invalid]="submitted() && contactForm.get('phone')?.invalid"
-                  placeholder="+91-XXXX-XXXX-XXXX"
-                />
+                  placeholder="+91-XXXX-XXXX-XXXX" />
                 @if (submitted() && contactForm.get('phone')?.invalid) {
-                  <div class="invalid-feedback">Phone is required</div>
+                <div class="invalid-feedback">Phone is required</div>
                 }
               </div>
 
               <!-- Subject -->
               <div class="form-group">
                 <label for="subject">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  class="form-control"
-                  formControlName="subject"
+                <input type="text" id="subject" class="form-control" formControlName="subject"
                   [class.is-invalid]="submitted() && contactForm.get('subject')?.invalid"
-                  placeholder="What is this about?"
-                />
+                  placeholder="What is this about?" />
                 @if (submitted() && contactForm.get('subject')?.invalid) {
-                  <div class="invalid-feedback">Subject is required</div>
+                <div class="invalid-feedback">Subject is required</div>
                 }
               </div>
 
               <!-- Message -->
               <div class="form-group">
                 <label for="message">Enter your message</label>
-                <textarea
-                  id="message"
-                  class="form-control"
-                  rows="5"
-                  formControlName="message"
+                <textarea id="message" class="form-control" rows="5" formControlName="message"
                   [class.is-invalid]="submitted() && contactForm.get('message')?.invalid"
-                  placeholder="Your message here..."
-                ></textarea>
+                  placeholder="Your message here..."></textarea>
                 @if (submitted() && contactForm.get('message')?.invalid) {
-                  <div class="invalid-feedback">
-                    @if (contactForm.get('message')?.hasError('required')) {
-                      Message is required
-                    }
-                    @if (contactForm.get('message')?.hasError('minlength')) {
-                      Message must be at least 10 characters
-                    }
-                  </div>
+                <div class="invalid-feedback">
+                  @if (contactForm.get('message')?.hasError('required')) {
+                  Message is required
+                  }
+                  @if (contactForm.get('message')?.hasError('minlength')) {
+                  Message must be at least 10 characters
+                  }
+                </div>
                 }
               </div>
 
@@ -188,10 +161,10 @@
               <div class="form-actions">
                 <button type="submit" class="btn btn-primary" [disabled]="submitted()">
                   @if (submitted()) {
-                    <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                    <span>Sending...</span>
+                  <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                  <span>Sending...</span>
                   } @else {
-                    Send Message
+                  Send Message
                   }
                 </button>
                 <button type="button" class="btn btn-outline-secondary" (click)="contactForm.reset()">

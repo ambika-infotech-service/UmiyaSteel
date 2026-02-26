@@ -1,9 +1,9 @@
-import { Component, ChangeDetectionStrategy, inject, computed } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map } from 'rxjs';
-import { ProductsService, Product } from '../../services/products';
+import { Product, ProductsService } from '../../services/products';
 
 @Component({
   selector: 'app-product-detail',

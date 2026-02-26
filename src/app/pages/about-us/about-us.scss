@@ -120,7 +120,7 @@ p {
         font-weight: 600;
       }
 
-      + .breadcrumb-item::before {
+      +.breadcrumb-item::before {
         content: '>';
         color: rgba(255, 255, 255, 0.7);
         margin-right: 0.4rem;
@@ -266,6 +266,7 @@ p {
 }
 
 @media (max-width: 576px) {
+
   .about-section,
   .story-section,
   .why-section {
@@ -276,4 +277,3 @@ p {
     height: 240px;
   }
 }
-
