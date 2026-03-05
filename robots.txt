@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://umiyasteel.ambikainfotech.online/sitemap.xml
