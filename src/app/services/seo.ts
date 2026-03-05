@@ -12,7 +12,9 @@ export interface SeoConfig {
   noindex?: boolean;
 }
 
-const SITE_URL = 'https://umiyasteelandimpex.com';
+export type JsonLdObject = Record<string, unknown>;
+
+const SITE_URL = 'https://umiyasteel.ambikainfotech.online';
 const DEFAULT_IMAGE = '/home/ic-steel.png';
 
 @Injectable({
@@ -50,6 +52,25 @@ export class SeoService {
     this.setCanonicalLink(canonicalUrl);
   }
 
+  upsertJsonLd(id: string, schema: JsonLdObject): void {
+    const scriptId = this.getJsonLdScriptId(id);
+    let script = this.document.getElementById(scriptId) as HTMLScriptElement | null;
+
+    if (!script) {
+      script = this.document.createElement('script');
+      script.type = 'application/ld+json';
+      script.id = scriptId;
+      this.document.head.appendChild(script);
+    }
+
+    script.text = JSON.stringify(schema);
+  }
+
+  removeJsonLd(id: string): void {
+    const script = this.document.getElementById(this.getJsonLdScriptId(id));
+    script?.remove();
+  }
+
   private buildCanonicalUrl(path?: string): string {
     const pathname = path || this.document.location.pathname;
     const normalizedPath = pathname.startsWith('/') ? pathname : `/${pathname}`;
@@ -75,5 +96,9 @@ export class SeoService {
     }
 
     link.setAttribute('href', url);
+  }
+
+  private getJsonLdScriptId(id: string): string {
+    return `jsonld-${id}`;
   }
 }

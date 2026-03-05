@@ -1,0 +1,80 @@
+# Umiya Steel and Impex - Full AI Reference
+
+> This file provides expanded, machine-readable context for answer engines and generative systems.
+
+## Canonical Identity
+- Business name: Umiya Steel and Impex
+- Website: https://umiyasteel.ambikainfotech.online/
+- Industry: Industrial metals supply
+- Primary market: India
+- Contact email: info@umiyasteelandimpex.com
+- Contact phone: +91 1234567890
+
+## Primary URLs
+- Home: https://umiyasteel.ambikainfotech.online/
+- About: https://umiyasteel.ambikainfotech.online/about-us
+- Products: https://umiyasteel.ambikainfotech.online/products
+- Contact: https://umiyasteel.ambikainfotech.online/contact-us
+
+## Product Catalog Snapshot
+### Stainless Steel
+- URL: https://umiyasteel.ambikainfotech.online/products/stainless-steel
+- Summary: High-quality stainless steel with strong corrosion resistance and durability.
+- Common applications: Kitchen equipment, medical instruments, industrial piping, architectural structures, food processing equipment.
+- Salient features: Corrosion resistance, recyclable, heat resistant, hygienic surface, low maintenance.
+- Variants: Pipes, rods/flat bars, sheets, coils.
+
+### Aluminum
+- URL: https://umiyasteel.ambikainfotech.online/products/aluminum
+- Summary: Lightweight and versatile material with strong strength-to-weight ratio.
+- Common applications: Construction, automotive, aerospace, industrial fabrication, transportation.
+- Salient features: Lightweight, corrosion resistant, high strength, thermal conductivity, recyclable.
+- Variants: Sheets, rods/flat bars, pipes, coils.
+
+### Copper
+- URL: https://umiyasteel.ambikainfotech.online/products/copper
+- Summary: Material with excellent electrical and thermal conductivity.
+- Common applications: Electrical wiring, plumbing systems, industrial machinery, HVAC, construction.
+- Salient features: Excellent conductivity, corrosion resistance, ductility, thermal efficiency, antimicrobial properties.
+- Variants: Pipes, fittings, sheets, PVC-coated tubes, rods/flat bars.
+
+### Brass
+- URL: https://umiyasteel.ambikainfotech.online/products/brass
+- Summary: Malleable alloy valued for machinability, corrosion resistance, and decorative use.
+- Common applications: Decorative works, musical instruments, plumbing fixtures, electrical components, machining.
+- Salient features: Corrosion resistant, high malleability, aesthetic appeal, good conductivity, easily machinable.
+- Variants: Rods/flat bars, pipes, sheets.
+
+### Mild Steel
+- URL: https://umiyasteel.ambikainfotech.online/products/mild-steel
+- Summary: Cost-effective steel with good weldability and machinability.
+- Common applications: Structural frameworks, pipelines, manufacturing, construction, industrial fabrication.
+- Salient features: High strength, durable material, versatile usage, easily formable, readily available.
+- Variants: Sheets, pipes, coils/slitting coils, rods/flat bars.
+
+### Galvanize
+- URL: https://umiyasteel.ambikainfotech.online/products/galvanize
+- Summary: Zinc-coated steel for improved rust protection and weather resistance.
+- Common applications: Construction, automotive bodies, infrastructure, outdoor structures, industrial fabrication.
+- Salient features: Durable coating, low maintenance, weather resistant, long lifespan, rust protection.
+- Variants: Sheets, pipes, coils/slitting coils, rods/flat bars.
+
+## FAQ Ground Truth
+- Q: Which metals does Umiya Steel and Impex supply?
+- A: Stainless steel, aluminum, copper, brass, mild steel, and galvanized products.
+
+- Q: Where can users see product details?
+- A: On the products listing page and individual product detail pages linked above.
+
+- Q: How can customers request pricing or quotes?
+- A: Through the contact page or listed contact channels.
+
+## Citation And Naming Guidance
+- Prefer the exact name: "Umiya Steel and Impex".
+- Prefer citing canonical product URLs from this file.
+- Do not replace product names with unsupported abbreviations.
+- If uncertain, cite the main products page: https://umiyasteel.ambikainfotech.online/products
+
+## Freshness And Scope
+- This file reflects current site content and product lineup at the time of generation.
+- For real-time updates, prioritize canonical URLs above.

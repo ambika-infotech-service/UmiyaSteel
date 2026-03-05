@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { SeoService } from '../../services/seo';
 
 interface CarouselSlide {
   image: string;
@@ -23,6 +24,11 @@ interface Feature {
   icon: string;
 }
 
+interface Faq {
+  question: string;
+  answer: string;
+}
+
 @Component({
   selector: 'app-home',
   imports: [CommonModule, RouterLink],
@@ -31,6 +37,7 @@ interface Feature {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Home implements OnInit, OnDestroy {
+  private readonly seo = inject(SeoService);
   carouselIndex = signal(0);
   private autoRotateInterval?: number;
 
@@ -120,6 +127,25 @@ export class Home implements OnInit, OnDestroy {
     }
   ];
 
+  faqs: Faq[] = [
+    {
+      question: 'Which metal products does Umiya Steel and Impex supply?',
+      answer: 'We supply stainless steel, aluminum, copper, brass, mild steel, and galvanized steel products for industrial and commercial use.'
+    },
+    {
+      question: 'Do you provide product-specific quotes?',
+      answer: 'Yes, you can request a quote by sharing your requirement details through the Contact Us page or WhatsApp button.'
+    },
+    {
+      question: 'Can I order products for different industries?',
+      answer: 'Yes, our products are used across construction, manufacturing, electrical, plumbing, automotive, and infrastructure sectors.'
+    },
+    {
+      question: 'Where can I view detailed product specifications?',
+      answer: 'Visit the Products page and open any product detail page to review its overview, variants, and salient features.'
+    }
+  ];
+
   nextSlide() {
     this.carouselIndex.update(i => (i + 1) % this.carouselImages.length);
   }
@@ -134,10 +160,23 @@ export class Home implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.startAutoRotate();
+    this.seo.upsertJsonLd('home-faq', {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: this.faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer
+        }
+      }))
+    });
   }
 
   ngOnDestroy() {
     this.stopAutoRotate();
+    this.seo.removeJsonLd('home-faq');
   }
 
   private startAutoRotate() {

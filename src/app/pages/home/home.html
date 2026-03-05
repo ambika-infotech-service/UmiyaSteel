@@ -115,6 +115,23 @@
   </div>
 </section>
 
+<!-- FAQ Section -->
+<section class="faq-section py-5">
+  <div class="container">
+    <h2 class="text-center mb-2">Frequently Asked Questions</h2>
+    <p class="text-center text-muted mb-5">Quick answers about products, orders, and support.</p>
+
+    <div class="faq-list">
+      @for (faq of faqs; track faq.question; let i = $index) {
+      <details class="mb-3" [attr.open]="i === 0 ? '' : null">
+        <summary class="fw-semibold">{{ faq.question }}</summary>
+        <p class="mt-2 mb-0 text-muted">{{ faq.answer }}</p>
+      </details>
+      }
+    </div>
+  </div>
+</section>
+
 <!-- Contact Us Section -->
 <section class="contact-us-section py-5 bg-light">
   <div class="container">

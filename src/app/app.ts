@@ -19,6 +19,8 @@ export class App {
   private readonly seo = inject(SeoService);
 
   constructor() {
+    this.registerGlobalSchemas();
+
     this.router.events
       .pipe(
         filter((event): event is NavigationEnd => event instanceof NavigationEnd),
@@ -36,5 +38,25 @@ export class App {
           this.seo.update(seoData);
         }
       });
+  }
+
+  private registerGlobalSchemas(): void {
+    this.seo.upsertJsonLd('organization', {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Umiya Steel and Impex',
+      url: 'https://umiyasteel.ambikainfotech.online',
+      logo: 'https://umiyasteel.ambikainfotech.online/favicon.ico',
+      email: 'info@umiyasteelandimpex.com',
+      telephone: '+91 1234567890',
+      sameAs: []
+    });
+
+    this.seo.upsertJsonLd('website', {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Umiya Steel and Impex',
+      url: 'https://umiyasteel.ambikainfotech.online'
+    });
   }
 }

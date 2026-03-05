@@ -1,5 +1,5 @@
 import { NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, effect, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, computed, effect, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map } from 'rxjs';
@@ -13,7 +13,7 @@ import { SeoService } from '../../services/seo';
   styleUrl: './product-detail.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductDetail {
+export class ProductDetail implements OnDestroy {
   private route = inject(ActivatedRoute);
   private productsService = inject(ProductsService);
   private seo = inject(SeoService);
@@ -45,6 +45,20 @@ export class ProductDetail {
           path: `/products/${currentProduct.slug}`,
           type: 'product'
         });
+
+        this.seo.upsertJsonLd('product-detail', {
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: currentProduct.name,
+          description: currentProduct.description,
+          image: [`https://umiyasteel.ambikainfotech.online${currentProduct.image}`],
+          category: 'Industrial Metals',
+          brand: {
+            '@type': 'Brand',
+            name: 'Umiya Steel and Impex'
+          },
+          url: `https://umiyasteel.ambikainfotech.online/products/${currentProduct.slug}`
+        });
         return;
       }
 
@@ -54,6 +68,12 @@ export class ProductDetail {
         path: `/products/${currentSlug}`,
         noindex: true
       });
+
+      this.seo.removeJsonLd('product-detail');
     });
+  }
+
+  ngOnDestroy(): void {
+    this.seo.removeJsonLd('product-detail');
   }
 }
